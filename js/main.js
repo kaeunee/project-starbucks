@@ -1,28 +1,5 @@
 'use strict'
 
-// 검색창 요소(.search) 찾기.
-const searchEl = document.querySelector('.search') //document은 HTML을 의미
-const searchInputEl = searchEl.querySelector('input')
-
-// 검색창 요소를 클릭하면 실행.
-searchEl.addEventListener('click', function () {
-  searchInputEl.focus()
-})
-// 검색창 요소 내부 실제 input 요소에 포커스되면 실행.
-searchInputEl.addEventListener('focus', function () {
-  searchEl.classList.add('focused')
-  searchInputEl.setAttribute('placeholder', '통합검색')
-})
-// 검색창 요소 내부 실제 input 요소에서 포커스가 해제(블러)되면 실행.
-searchInputEl.addEventListener('blur', function () {
-  searchEl.classList.remove('focused')
-  searchInputEl.setAttribute('placeholder', '')
-})
-
-/**
- * 페이지 스크롤에 따른 요소 제어
- */
-// 페이지 스크롤에 영향을 받는 요소들을 검색!
 const badgeEl = document.querySelector('header .badges');
 const toTopEl = document.querySelector('#to-top')
 // 페이지에 스크롤 이벤트를 추가!
@@ -163,10 +140,4 @@ spyEls.forEach(function (spyEl) {
     })
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller())
-})
-
-/**
- * 올해가 몇 년도인지 계산
- */
-const thisYear = document.querySelector('.this-year')
-thisYear.textContent = new Date().getFullYear() // 2023
+});
